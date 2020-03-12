@@ -1,4 +1,4 @@
-package hu.oe.hoe.empire;
+package hu.oe.hoe.heroes;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
@@ -54,6 +54,11 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         http.cors();
         http.csrf().disable();
         http.authorizeRequests().anyRequest().authenticated();
+//          .antMatchers("/heroes/*")
+//          .hasRole("user")
+//          .anyRequest()
+//          .permitAll();
     }
+        
 
 }

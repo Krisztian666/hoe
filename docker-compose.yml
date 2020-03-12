@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  hoe-species:
+    image: jkqxl2/hoe:species
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://10.0.2.15:3306/hoe
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: user
+    volumes:
+      - /home/user/jdebug:/opt/jdebug
+    ports:
+      - '8090:8090'
+
+  hoe-heroes:
+    image: jkqxl2/hoe:heroes
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://10.0.2.15:3306/hoe
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: user
+      SERVICE_SPACES: http://hoe-species:8090/species
+    volumes:
+      - /home/user/jdebug:/opt/jdebug
+    ports:
+      - '8091:8091'
