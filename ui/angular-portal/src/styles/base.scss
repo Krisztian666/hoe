@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Start of custom Webflow CSS
+   ========================================================================== */
+.background-video {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.section {
+  width: 100%;
+}
+
+.navbar {
+  background-color: rgba(3, 3, 3, 0.52);
+}
+
+.nav-link {
+  color: #f8f0f0;
+}
+
+.section-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 80%;
+}
+
+.button {
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: rgba(5, 5, 5, 0.55);
+}
+
+.div-block {
+  margin-top: 10px;
+}
+
+.heading {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 200;
+}
+
+.heading-2 {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 479px) {
+  .div-block {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+  }
+}
+
+
+
+.width-100{
+  width: 100%;
+}
+
+.width-75{
+  width: 75%;
+}
+
+.cursorPointer{
+  cursor: pointer;
+}
+
+.textAlignRight{
+  text-align: right;
+}
+
+.m-10px{
+  margin: 10px;
+}
+
+
+mat-card{
+  min-width: 50%;
+}

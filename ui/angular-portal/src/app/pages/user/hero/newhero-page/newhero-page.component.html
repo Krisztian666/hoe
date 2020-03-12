@@ -1,0 +1,22 @@
+<mat-card style="background-color: rgba(255,255,255,0.5)">
+  <mat-card-title>Új hős felvitele</mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="width-100" >
+      <mat-label>Hős neve</mat-label>
+      <input type="text" matInput [(ngModel)]="hero.name" >
+    </mat-form-field>
+
+    <mat-form-field class="width-100" >
+      <mat-label>Hős leírása</mat-label>
+      <input type="text" matInput [(ngModel)]="hero.description" >
+    </mat-form-field>
+    <hr />
+    <mat-form-field class="width-100" *ngFor="let hybrid of hero.hybrid">
+      <mat-label>{{hybrid.species.name}}</mat-label>
+      <input type="password" matInput [(ngModel)]="hybrid.percent">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer class="m-10px textAlignRight">
+    <i class="material-icons cursorPointer" (click)="save()">check_circle_outline</i>
+  </mat-card-footer>
+</mat-card>

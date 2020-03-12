@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>  
+        <link rel='stylesheet prefetch' href='https://storage.googleapis.com/code.getmdl.io/1.3.0/material.indigo-pink.min.css'>
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet prefetch' href='https://storage.googleapis.com/code.getmdl.io/1.3.0/material.indigo-pink.min.css'>
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <style>
+
+            html {
+                width: 100%;
+            }
+
+            body {
+                background: #f5f5f5;
+                margin: 50px auto;
+                width: 512px;
+            }
+
+            .mdl-button--file input {
+                cursor: pointer;
+                height: 100%;
+                right: 0;
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                width: 300px;
+                z-index: 4;
+            }
+
+            .mdl-card__title{
+                flex-direction: column;
+            }
+            
+            .mdl-card{
+                margin-top: 1%;
+            }
+            .mdl-textfield--file .mdl-textfield__input {
+                box-sizing: border-box;
+                width: calc(100% - 32px);
+            }
+            .mdl-textfield--file .mdl-button--file {
+                right: 0;
+            }
+
+            .mdl-card{
+                flex-direction: column;
+            }
+            .demo-card-event.mdl-card {
+                background: #f5f5f5;
+                width: 95%;
+                
+            }
+            .demo-card-event > .mdl-card__actions {
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+            .demo-card-event > .mdl-card__title {
+                align-items: flex-start;
+            }
+            .demo-card-event > .mdl-card__title > h4 {
+                margin-top: 0;
+            }
+            .demo-card-event > .mdl-card__actions {
+                display: flex;
+                flex-direction: row;
+                box-sizing:border-box;
+                align-items: center;
+            }
+            .demo-card-event > .mdl-card__actions > .material-icons {
+                padding-right: 10px;
+            }
+            .demo-card-event > .mdl-card__title,
+            .demo-card-event > .mdl-card__actions,
+            .demo-card-event > .mdl-card__actions > .mdl-button {
+                /*color: #fff;*/
+            }
+        </style>
+        <script>
+            var token;
+            var tokenType;
+            
+            function fuggveny () {
+                aler(this.response["access_token"]);
+            }
+            
+            function reqListener () {
+                token = this.response["access_token"];
+                tokenType = this.response["token_type"];
+                getJson();
+            }
+
+            function login(){
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", reqListener);
+                oReq.open("POST", "https://iam-medical.drhealth.cloud/auth/realms/hoe/protocol/openid-connect/token");
+                oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                oReq.responseType = "json";
+                var data = "username=" + document.getElementById("u_name").value + "&password=" + document.getElementById("pw").value + "&grant_type=password&client_id=account";
+                oReq.send(data);
+            }
+
+            function getJson(){
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", fuggveny);
+                oReq.open("GET", "http://localhost:8090/species/getallspecies");
+                oReq.setRequestHeader("Authorization", "Bearer " + token);
+                oReq.responseType = "json";
+                oReq.setRequestHeader("Content-type", "multipart/form-data");
+                oReq.send();
+            }
+     
+        </script>
+    </head>
+    <body>
+
+
+        <input id="u_name" name="username" value="user0">
+        <input id="pw" name="password" value="user0">
+
+        <button type="button" onclick="login()">Login</button>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath hu.oe.hoe.speciesandendowments.Application -javaagent:/home/javaee/docker/jidebugplus-agent-1.0-SNAPSHOT.jar=/home/javaee/docker/config:agent.properties</exec.args>
+                <exec.executable>java</exec.executable>
+            </properties>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath hu.oe.hoe.speciesandendowments.Application -javaagent:/home/javaee/docker/jidebugplus-agent-1.0-SNAPSHOT.jar=/home/javaee/docker/config:agent.properties</exec.args>
+                <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath hu.oe.hoe.speciesandendowments.Application -javaagent:/home/javaee/docker/jidebugplus-agent-1.0-SNAPSHOT.jar=/home/javaee/docker/config:agent.properties</exec.args>
+                <exec.executable>java</exec.executable>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-package</actionName>
+            <displayName>package</displayName>
+            <goals>
+                <goal>package</goal>
+            </goals>
+        </action>
+    </actions>

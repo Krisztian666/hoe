@@ -1,0 +1,21 @@
+<mat-card style="background-color: rgba(255,255,255,0.5)">
+  <mat-card-title>Hősök</mat-card-title>
+  <mat-card-content>
+
+    <mat-card style="" *ngFor="let hero of heroes">
+      <mat-card-header>
+        <mat-card-title>{{hero.name}}</mat-card-title>
+        <mat-card-subtitle>{{hero.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content *ngIf="hero.hybrid && hero.hybrid.length>0 && hero.hybrid[0].species">
+        <div *ngFor="let hybrid of hero.hybrid">
+          <span>{{hybrid.percent}}%</span>
+          <span>{{hybrid.species.name}}</span>
+        </div>
+      </mat-card-content>
+      <mat-card-footer class="m-10px textAlignRight">
+        <i class="material-icons cursorPointer" (click)="load(hero)">info</i>
+      </mat-card-footer>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

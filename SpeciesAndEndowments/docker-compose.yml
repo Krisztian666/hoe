@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  spaces:
+    image: hoe-spaces:1.0
+    volumes:
+      - /home/javaee/docker:/opt/jdebug
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=localhost
+      - network.host=0.0.0.0
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 8090:8090
+
