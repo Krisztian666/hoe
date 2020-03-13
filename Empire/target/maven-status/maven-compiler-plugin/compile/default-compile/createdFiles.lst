@@ -1,5 +1,5 @@
 hu/oe/hoe/empire/Application.class
-hu/oe/hoe/empire/SecurityRepository.class
+hu/oe/hoe/empire/SecurityGuardRepository.class
+hu/oe/hoe/empire/EmpireHandlerResource.class
 hu/oe/hoe/empire/EmpireRepository.class
 hu/oe/hoe/empire/SecurityConfig.class
-hu/oe/hoe/empire/EmpireResource.class

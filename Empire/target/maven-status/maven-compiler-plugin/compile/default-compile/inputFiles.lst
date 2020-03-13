@@ -1,5 +1,5 @@
-/home/user/HOE/Empire/src/main/java/hu/oe/hoe/empire/EmpireRepository.java
-/home/user/HOE/Empire/src/main/java/hu/oe/hoe/empire/SecurityConfig.java
-/home/user/HOE/Empire/src/main/java/hu/oe/hoe/empire/Application.java
-/home/user/HOE/Empire/src/main/java/hu/oe/hoe/empire/EmpireResource.java
-/home/user/HOE/Empire/src/main/java/hu/oe/hoe/empire/SecurityRepository.java
+/home/user/hoe/Empire/src/main/java/hu/oe/hoe/empire/EmpireHandlerResource.java
+/home/user/hoe/Empire/src/main/java/hu/oe/hoe/empire/Application.java
+/home/user/hoe/Empire/src/main/java/hu/oe/hoe/empire/EmpireRepository.java
+/home/user/hoe/Empire/src/main/java/hu/oe/hoe/empire/SecurityGuardRepository.java
+/home/user/hoe/Empire/src/main/java/hu/oe/hoe/empire/SecurityConfig.java

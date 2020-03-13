@@ -90,7 +90,6 @@ public class HeroResource{
 
     @Operation(
         description = "Egy Hős lekérdezése faji részletezéssel",
-        security ={@SecurityRequirement(name = "jwt-token", scopes = {"user"})},
         responses = {
             @ApiResponse(responseCode = "200", description = "Sikeres művelet."),
             @ApiResponse(responseCode = "404", description = "Nincs ilyen azonosítóju hős")

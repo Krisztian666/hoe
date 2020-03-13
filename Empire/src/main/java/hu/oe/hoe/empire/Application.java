@@ -4,7 +4,7 @@ package hu.oe.hoe.empire;
 
 import hu.oe.hoe.base.OpenApiApplication;
 import hu.oe.hoe.model.Empire;
-import hu.oe.hoe.model.Security;
+import hu.oe.hoe.model.SecurityGuard;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -23,9 +23,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableAspectJAutoProxy
 @EnableCaching
 @SpringBootApplication
-@EntityScan(basePackageClasses = {Security.class,Empire.class})
-@EnableJpaRepositories(basePackageClasses = {EmpireRepository.class, SecurityRepository.class})
-@ComponentScan(basePackageClasses={EmpireRepository.class})
+@EntityScan(basePackageClasses = {SecurityGuard.class,Empire.class})
+@EnableJpaRepositories(basePackageClasses = {EmpireRepository.class, SecurityGuardRepository.class})
+@ComponentScan(basePackageClasses={EmpireHandlerResource.class,SecurityConfig.class})
 @OpenAPIDefinition(    
         security = {@SecurityRequirement(name = "jwt-token", scopes = {"admin","user"})},
     info = @io.swagger.v3.oas.annotations.info.Info(

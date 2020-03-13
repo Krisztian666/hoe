@@ -22,10 +22,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableCaching
 @SpringBootApplication
 @EntityScan(basePackageClasses = {Hero.class,Hybrid.class})
-@EnableJpaRepositories(basePackageClasses = {HeroRepository.class})
-@ComponentScan(basePackageClasses={HeroResource.class, HybridRepository.class})
+@EnableJpaRepositories(basePackageClasses = {HeroRepository.class, HybridRepository.class})
+@ComponentScan(basePackageClasses={HeroResource.class})
 @OpenAPIDefinition(    
-       
         security = {@SecurityRequirement(name = "jwt-token", scopes = {"admin","user"})},
     info = @io.swagger.v3.oas.annotations.info.Info(
         title = "Heroes of Empires - Hero", 

@@ -1,8 +1,8 @@
-/home/user/HOE/base/src/main/java/hu/oe/hoe/base/DataException.java
-/home/user/HOE/base/src/main/java/hu/oe/hoe/model/Hybrid.java
-/home/user/HOE/base/src/main/java/hu/oe/hoe/base/OpenApiApplication.java
-/home/user/HOE/base/src/main/java/hu/oe/hoe/model/Hero.java
-/home/user/HOE/base/src/main/java/hu/oe/hoe/model/Empire.java
-/home/user/HOE/base/src/main/java/hu/oe/hoe/model/Species.java
-/home/user/HOE/base/src/main/java/hu/oe/hoe/model/Security.java
-/home/user/HOE/base/src/main/java/hu/oe/hoe/model/Ability.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/model/Hybrid.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/model/Species.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/model/Ability.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/model/SecurityGuard.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/model/Empire.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/base/DataException.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/model/Hero.java
+/home/user/hoe/base/src/main/java/hu/oe/hoe/base/OpenApiApplication.java

@@ -18,7 +18,7 @@ export class AuthService {
   public login(pUser:string, pPassword:string){
     let headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
     let body = "username=" + pUser + "&password=" + pPassword + "&grant_type=password&client_id=account";
-      this.http.post("https://iam-medical.drhealth.cloud/auth/realms/hoe/protocol/openid-connect/token",body,{headers :headers})
+      this.http.post("http://hoeservice:9080/auth/realms/hoe/protocol/openid-connect/token",body,{headers :headers})
         .subscribe(data => {
           this.data=data;
           const speciesService: SpeciesResourceService = this.injector.get(SpeciesResourceService);

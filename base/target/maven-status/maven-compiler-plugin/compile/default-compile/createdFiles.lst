@@ -1,13 +1,13 @@
 hu/oe/hoe/model/Ability$AbilityBuilder.class
-hu/oe/hoe/model/Security.class
 hu/oe/hoe/model/Hybrid.class
 hu/oe/hoe/model/Empire$Fields.class
+hu/oe/hoe/model/SecurityGuard.class
 hu/oe/hoe/model/Ability$Fields.class
 hu/oe/hoe/base/OpenApiApplication.class
 hu/oe/hoe/model/Hero$Fields.class
-hu/oe/hoe/model/Security$Fields.class
 hu/oe/hoe/model/Species.class
 hu/oe/hoe/model/Hero.class
+hu/oe/hoe/model/SecurityGuard$Fields.class
 hu/oe/hoe/model/Species$SpeciesBuilder.class
 hu/oe/hoe/model/Hybrid$Fields.class
 hu/oe/hoe/model/Ability.class
