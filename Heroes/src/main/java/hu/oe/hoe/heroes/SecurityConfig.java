@@ -52,7 +52,7 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         
         http.cors();
         http.csrf().disable();
-        http.authorizeRequests().anyRequest().permitAll();
+        http.authorizeRequests();//.anyRequest().permitAll();
 //          .antMatchers("/heroes/*")
 //          .hasRole("user")
 //          .anyRequest()

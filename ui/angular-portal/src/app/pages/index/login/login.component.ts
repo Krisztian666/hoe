@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   doLogin(){
     this.auth.login(this.user,this.password);
-    this.router.navigateByUrl("/hero/list");
   }
 
 }

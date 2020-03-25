@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serviceURL: 'http://localhost'
+  serviceURL: 'http://hoeservice:9080'
 };

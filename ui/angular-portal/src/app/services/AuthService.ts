@@ -28,7 +28,6 @@ export class AuthService {
 
           const heroService: HeroResourceService = this.injector.get(HeroResourceService);
           heroService.configuration.accessToken=this.data.access_token;
-          this.router.navigateByUrl("/hero/list");
 
           const empireService: EmpireHandlerResourceService = this.injector.get(EmpireHandlerResourceService);
           empireService.configuration.accessToken=this.data.access_token;

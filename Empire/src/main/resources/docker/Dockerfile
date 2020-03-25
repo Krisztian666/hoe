@@ -2,7 +2,7 @@ FROM openjdk:11-jdk-slim
 
  ENV LANG C.UTF-8
 
-ADD ${project.artifactId}-swarm.jar /opt/app.jar
+ADD ${project.artifactId}.jar /opt/app.jar
 
 EXPOSE 8090
 
