@@ -1,5 +1,5 @@
 /**
- * Heroes of Empires
+ * Heroes of Empires - species
  * OE Microservice Project
  *
  * OpenAPI spec version: v1

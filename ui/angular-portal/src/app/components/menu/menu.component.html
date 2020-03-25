@@ -4,21 +4,18 @@
   <a routerLink="login" class="nav-link w-nav-link">Bejelentkezés</a>
 </nav>
 
-
 <nav role="navigation" class="w-nav-menu" *ngIf="auth.data">
 
-  <button mat-button [matMenuTriggerFor]="aboveMenu">Hősök</button>
+  <a mat-button [matMenuTriggerFor]="aboveMenu">Hősök</a>
   <mat-menu #aboveMenu="matMenu" yPosition="above">
-    <button mat-menu-item routerLink="/hero/new">Új</button>
-    <button mat-menu-item routerLink="/hero/list">Lista</button>
+    <a mat-menu-item routerLink="/hero/new">Új</a>
+    <a mat-menu-item routerLink="/hero/list">Lista</a>
   </mat-menu>
-
-  <button mat-button [matMenuTriggerFor]="belowMenu">Birodalom</button>
+  <span>&nbsp; &nbsp; </span>
+  <a mat-button [matMenuTriggerFor]="belowMenu">Birodalom</a>
   <mat-menu #belowMenu="matMenu" yPosition="below">
-    <button mat-menu-item>Új</button>
-    <button mat-menu-item>Lista</button>
-    <button mat-menu-item>Védekezés</button>
-    <button mat-menu-item>Támadás</button>
+    <a mat-menu-item routerLink="/empire/new">Új</a>
+    <a mat-menu-item routerLink="/empire/list">Lista</a>
   </mat-menu>
 
 </nav>

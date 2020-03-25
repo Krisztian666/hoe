@@ -15,7 +15,10 @@ export class NewheroPageComponent implements OnInit {
 
   public hero= new Object() as Hero;
   public species: Array<Species>
-  constructor(private router: Router, private speciesService: SpeciesResourceService, private heroSerice: HeroResourceService) { }
+  constructor(
+    private router: Router,
+    private speciesService: SpeciesResourceService,
+    private heroSerice: HeroResourceService) { }
 
   ngOnInit(): void {
     this.hero.hybrid= new Array<Hybrid>();
@@ -30,7 +33,6 @@ export class NewheroPageComponent implements OnInit {
   }
 
   public save(){
-
-    this.heroSerice.addHero(this.hero).subscribe(()=>{});
+    this.heroSerice.addHero(this.hero).subscribe(()=>{this.router.navigateByUrl("/hero/list")});
   }
 }

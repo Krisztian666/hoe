@@ -1,5 +1,5 @@
 /**
- * Heroes of Empires
+ * Heroes of Empires - species
  * OE Microservice Project
  *
  * OpenAPI spec version: v1
@@ -57,6 +57,60 @@ export class SpeciesResourceService {
 
     /**
      * 
+     * Faj tulajdonságainak módosítása.
+     * @param sid 
+     * @param aid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public addAbilityToSpecies(sid: number, aid: number, observe?: 'body', reportProgress?: boolean): Observable<Species>;
+    public addAbilityToSpecies(sid: number, aid: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Species>>;
+    public addAbilityToSpecies(sid: number, aid: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Species>>;
+    public addAbilityToSpecies(sid: number, aid: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (sid === null || sid === undefined) {
+            throw new Error('Required parameter sid was null or undefined when calling addAbilityToSpecies.');
+        }
+
+        if (aid === null || aid === undefined) {
+            throw new Error('Required parameter aid was null or undefined when calling addAbilityToSpecies.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (jwt-token) required
+        if (this.configuration.accessToken) {
+            const accessToken = typeof this.configuration.accessToken === 'function'
+                ? this.configuration.accessToken()
+                : this.configuration.accessToken;
+            headers = headers.set('Authorization', 'Bearer ' + accessToken);
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Species>('get',`${this.basePath}/species/removeability/${encodeURIComponent(String(sid))}/${encodeURIComponent(String(aid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
      * Új faj felvitele.
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -97,9 +151,9 @@ export class SpeciesResourceService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<Array<Species>>(`${this.basePath}/species`,
-            body,
+        return this.httpClient.request<Array<Species>>('post',`${this.basePath}/species`,
             {
+                body: body,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -142,7 +196,56 @@ export class SpeciesResourceService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Array<Species>>(`${this.basePath}/species/getallspecies`,
+        return this.httpClient.request<Array<Species>>('get',`${this.basePath}/species/getallspecies`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Egy elérhető faj keresése név azonosító.
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getSpeciesById(id: number, observe?: 'body', reportProgress?: boolean): Observable<Species>;
+    public getSpeciesById(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Species>>;
+    public getSpeciesById(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Species>>;
+    public getSpeciesById(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getSpeciesById.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (jwt-token) required
+        if (this.configuration.accessToken) {
+            const accessToken = typeof this.configuration.accessToken === 'function'
+                ? this.configuration.accessToken()
+                : this.configuration.accessToken;
+            headers = headers.set('Authorization', 'Bearer ' + accessToken);
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Species>('get',`${this.basePath}/species/byid/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -191,7 +294,61 @@ export class SpeciesResourceService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Species>(`${this.basePath}/species/byname/${encodeURIComponent(String(name))}`,
+        return this.httpClient.request<Species>('get',`${this.basePath}/species/byname/${encodeURIComponent(String(name))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Faj tulajdonságainak módosítása.
+     * @param sid 
+     * @param aid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public removeAbilityFromSpecies(sid: number, aid: number, observe?: 'body', reportProgress?: boolean): Observable<Species>;
+    public removeAbilityFromSpecies(sid: number, aid: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Species>>;
+    public removeAbilityFromSpecies(sid: number, aid: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Species>>;
+    public removeAbilityFromSpecies(sid: number, aid: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (sid === null || sid === undefined) {
+            throw new Error('Required parameter sid was null or undefined when calling removeAbilityFromSpecies.');
+        }
+
+        if (aid === null || aid === undefined) {
+            throw new Error('Required parameter aid was null or undefined when calling removeAbilityFromSpecies.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (jwt-token) required
+        if (this.configuration.accessToken) {
+            const accessToken = typeof this.configuration.accessToken === 'function'
+                ? this.configuration.accessToken()
+                : this.configuration.accessToken;
+            headers = headers.set('Authorization', 'Bearer ' + accessToken);
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Species>('get',`${this.basePath}/species/romoveability/${encodeURIComponent(String(sid))}/${encodeURIComponent(String(aid))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

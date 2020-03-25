@@ -1,5 +1,5 @@
 /**
- * Heroes of Empires
+ * Heroes of Empires - species
  * OE Microservice Project
  *
  * OpenAPI spec version: v1
@@ -29,7 +29,6 @@ export class AbilityResourceService {
     protected basePath = 'http://localhost:8090/species';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
-
 
     constructor(protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
         if (basePath) {
@@ -97,9 +96,9 @@ export class AbilityResourceService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<Array<Ability>>(`${this.basePath}/ability`,
-            body,
+        return this.httpClient.request<Array<Ability>>('post',`${this.basePath}/ability`,
             {
+                body: body,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -115,9 +114,9 @@ export class AbilityResourceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteEndowments(id: number, observe?: 'body', reportProgress?: boolean): Observable<Ability>;
-    public deleteEndowments(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Ability>>;
-    public deleteEndowments(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Ability>>;
+    public deleteEndowments(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public deleteEndowments(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public deleteEndowments(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public deleteEndowments(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -136,7 +135,6 @@ export class AbilityResourceService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
-            'application/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -147,7 +145,7 @@ export class AbilityResourceService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<Ability>(`${this.basePath}/ability/delete/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<any>('delete',`${this.basePath}/ability/delete/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -191,7 +189,7 @@ export class AbilityResourceService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Array<Ability>>(`${this.basePath}/ability/getabilities`,
+        return this.httpClient.request<Array<Ability>>('get',`${this.basePath}/ability/getabilities`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -240,7 +238,7 @@ export class AbilityResourceService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Ability>(`${this.basePath}/ability/byname/${encodeURIComponent(String(name))}`,
+        return this.httpClient.request<Ability>('get',`${this.basePath}/ability/byname/${encodeURIComponent(String(name))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -291,9 +289,9 @@ export class AbilityResourceService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<Array<Ability>>(`${this.basePath}/ability`,
-            body,
+        return this.httpClient.request<Array<Ability>>('put',`${this.basePath}/ability`,
             {
+                body: body,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

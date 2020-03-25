@@ -6,6 +6,8 @@ import {SpeciesPageComponent} from './pages/admin/species-page/species-page.comp
 import {AbilityPageComponent} from './pages/admin/ability-page/ability-page.component';
 import {LoginComponent} from './pages/index/login/login.component';
 import {NewheroPageComponent} from './pages/user/hero/newhero-page/newhero-page.component';
+import {NewEmpireComponent} from './pages/user/empire/new-empire/new-empire.component';
+import {ListEmpireComponent} from './pages/user/empire/list-empire/list-empire.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,10 @@ const routes: Routes = [
   { path: 'ability', component: AbilityPageComponent },
   { path: 'hero-entity/:id', component: HeroPageComponent },
   { path: 'hero/new', component: NewheroPageComponent },
-  { path: 'hero/list', component: HeroPageComponent }
+  { path: 'hero/list', component: HeroPageComponent },
+  { path: 'empire/new', component: NewEmpireComponent },
+  { path: 'empire/list', component: ListEmpireComponent }
+
 ];
 
 @NgModule({

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{hero.name}}</h1>
+<div mat-dialog-content>
+  <mat-card *ngFor="let hybrid of hero.hybrid" style="margin: 3px; " >
+    <mat-card-header>
+      <mat-card-title>{{hybrid.species.name}} ({{hybrid.percent}}%)</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Bezár</button>
+</div>

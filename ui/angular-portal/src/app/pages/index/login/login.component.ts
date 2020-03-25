@@ -12,13 +12,16 @@ export class LoginComponent implements OnInit {
   public user:string;
   public password:string;
 
-  constructor(private auth:AuthService) {  }
+  constructor(private auth:AuthService, private router: Router) {  }
 
   ngOnInit(): void {
     this.password= 'user0';
     this.user= 'user0';
   }
 
-  doLogin(){this.auth.login(this.user,this.password);}
+  doLogin(){
+    this.auth.login(this.user,this.password);
+    this.router.navigateByUrl("/hero/list");
+  }
 
 }

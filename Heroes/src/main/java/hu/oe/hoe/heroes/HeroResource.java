@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Collection;
 import javax.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -88,6 +88,22 @@ public class HeroResource{
         return repositoryHero.findByIdAndUserid(name, principal.getName());
     }
 
+    
+     @Operation(
+        description = "Egy Hős lekérdezése.",
+        security ={@SecurityRequirement(name = "jwt-token", scopes = {"user"})},
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Sikeres művelet."),
+            @ApiResponse(responseCode = "403", description = "Hibás lekérdezés")
+        })
+    @RolesAllowed("user") 
+    @DeleteMapping(path ="/remove/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public boolean removeHeroByiD(Principal principal, @PathVariable(name="id") Long pId){
+        repositoryHero.deleteById(pId);
+        return true;
+    }
+
+    
     @Operation(
         description = "Egy Hős lekérdezése faji részletezéssel",
         responses = {
@@ -95,7 +111,7 @@ public class HeroResource{
             @ApiResponse(responseCode = "404", description = "Nincs ilyen azonosítóju hős")
     })
     @GetMapping(path ="/byid/{id}", produces = "application/json")
-    public @ResponseBody Hero getFullHeroById(@PathVariable Long id){
+    public @ResponseBody Hero getFullHeroById(@PathVariable(name = "id") Long id){
         try{
             String uri = "";
             Hero tmp = repositoryHero.findById(id).get();

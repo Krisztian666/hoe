@@ -1,0 +1,18 @@
+<section style="width: 100%">
+  <h1>Birodalmak</h1>
+  <div class="rowflex">
+    <mat-card style="width: 200px !important; margin:10px !important" *ngFor="let empire of empires">
+      <mat-card-header>
+        <mat-card-title>{{empire.name}}</mat-card-title>
+        <mat-card-subtitle>{{empire.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-footer>
+        <mat-card-actions>
+          <mat-icon *ngIf="!empire.protect" style="float: right; margin-right: 10px;cursor: pointer" (click)="openAddProtectedDialog(empire)">security</mat-icon>
+          <mat-icon *ngIf="empire.protect" style="float: right; margin-right: 10px;cursor: pointer" (click)="openGetProtectedDialog(empire)">person_pin_circle</mat-icon>
+          <mat-icon  style="float: right; margin-right: 10px;cursor: pointer" (click)="doDelete(empire)">delete</mat-icon>
+        </mat-card-actions>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</section>

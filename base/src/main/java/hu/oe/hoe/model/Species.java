@@ -3,6 +3,7 @@ package hu.oe.hoe.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,7 +46,7 @@ public class Species {
    
     @ManyToMany(fetch = FetchType.LAZY)
 //    @ApiModelProperty("Faji képesség lista")
-    private Collection<Ability>  endowments = new ArrayList<>();
+    private List<Ability>  endowments = new ArrayList<>();
 
     @Builder
     public Species(Long id, String name, String description) {

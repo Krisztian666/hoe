@@ -130,6 +130,32 @@
 }
 
 
-mat-card{
-  min-width: 50%;
+
+app-hero-page, app-list-empire, app-login{
+  width: 100%;
+  position: relative;
+  top: -20vh;
+}
+
+h1{
+  text-align: center;
+}
+
+
+.columnflex{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rowflex{
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-card{
+  background-color: rgba(255,255,255,0.85);
 }

@@ -51,7 +51,7 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.cors();
-        http.authorizeRequests();
+        http.authorizeRequests().anyRequest().permitAll();
   //        .antMatchers("/species/*")
   //        .hasRole("user")
   //        .anyRequest()

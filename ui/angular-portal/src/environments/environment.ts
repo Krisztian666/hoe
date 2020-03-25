@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serviceURL: 'http://localhost'
+  serviceURL: 'https://iam-medical.drhealth.cloud'
 };
 
 /*

@@ -23,6 +23,4 @@ export class SpeciesDialogComponent implements OnInit {
   public onClose(): void {
     this.dialogRef.close();
   }
-
-
 }

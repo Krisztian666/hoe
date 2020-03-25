@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Hősök</h1>
+<p mat-dialog-subtile>Birodalmak számára védelmet nyújtó hősök!</p>
+<div mat-dialog-content>
+  <mat-card *ngFor="let hero of heroes" style="margin: 3px; cursor: pointer" [mat-dialog-close]="hero">
+    <mat-card-header>
+      <mat-card-title>{{hero.name}}</mat-card-title>
+      <mat-card-subtitle>{{hero.description}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Bezár</button>
+</div>

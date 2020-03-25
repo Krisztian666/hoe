@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data['hero'].name}}</h1>
+
+<div mat-dialog-content>
+  <mat-list>
+    <mat-list-item *ngFor="let emp of empires" (click)="attack(emp)">
+      <mat-icon mat-list-icon>star</mat-icon>
+      <div style="cursor: pointer" mat-line>{{emp.name}}</div>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Bezár</button>
+</div>

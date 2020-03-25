@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>Új hős felvitele</mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="width-100" >
+      <mat-label>Birodalom neve</mat-label>
+      <input type="text" matInput [(ngModel)]="empire.name" >
+    </mat-form-field>
+
+    <mat-form-field class="width-100" >
+      <mat-label>Birodalom leírása</mat-label>
+      <input type="text" matInput [(ngModel)]="empire.description" >
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer class="m-10px textAlignRight">
+    <i class="material-icons cursorPointer" (click)="save()">check_circle_outline</i>
+  </mat-card-footer>
+</mat-card>

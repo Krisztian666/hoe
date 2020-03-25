@@ -1,6 +1,8 @@
 package hu.oe.hoe.model;
 
-import java.sql.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.sql.Timestamp;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,15 +33,12 @@ public class SecurityGuard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;    
-        
-    @ManyToOne
-    private Empire empire;
     
     @Column(name="starttime")
-    private Date starttime;
+    private Timestamp starttime;
     
     @Column(name="stoptime")
-    private Date stoptime;
+    private Timestamp stoptime;
     
     @Column(name="active")
     @Nullable
@@ -46,4 +47,13 @@ public class SecurityGuard {
     @Column(name="price")
     private Long price;
     
+    @Column(name="heroid")
+    private Long heroid;
+    
+    @Transient
+    private Long empireid;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Empire empire;
 }

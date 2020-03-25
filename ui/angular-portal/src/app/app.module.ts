@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexPageComponent } from './pages/index/index-page.component';
 import { HeroPageComponent } from './pages/user/hero/hero-page/hero-page.component';
-import { EmpirePageComponent } from './pages/user/empire-page/empire-page.component';
 import { SpeciesPageComponent } from './pages/admin/species-page/species-page.component';
 import { AbilityPageComponent } from './pages/admin/ability-page/ability-page.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -27,13 +26,21 @@ import {HeroResourceService} from './services/hero/api/heroResource.service';
 import { MenuComponent } from './components/menu/menu.component';
 import {MatMenu, MatMenuModule} from '@angular/material/menu';
 import { NewheroPageComponent } from './pages/user/hero/newhero-page/newhero-page.component';
+import {EmpireHandlerResourceService} from './services/empire/api/empireHandlerResource.service';
+import { NewEmpireComponent } from './pages/user/empire/new-empire/new-empire.component';
+import {MatIconModule} from '@angular/material/icon';
+import { ProtectEmpireModalComponent } from './pages/user/empire/list-empire/protect-empire-modal/protect-empire-modal.component';
+import {ListEmpireComponent} from './pages/user/empire/list-empire/list-empire.component';
+import { ProtectHeroModalComponent } from './pages/user/empire/list-empire/protect-hero-modal/protect-hero-modal.component';
+import { AttackEmpireModalComponent } from './pages/user/hero/hero-page/attack-empire-modal/attack-empire-modal.component';
+import {MatListModule} from '@angular/material/list';
+import { HeroInfoComponent } from './pages/user/hero/hero-page/hero-info/hero-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexPageComponent,
     HeroPageComponent,
-    EmpirePageComponent,
     SpeciesPageComponent,
     AbilityPageComponent,
     LoginComponent,
@@ -42,7 +49,13 @@ import { NewheroPageComponent } from './pages/user/hero/newhero-page/newhero-pag
     HeroToplistDialogComponent,
     EmpireToplistDialogComponent,
     MenuComponent,
-    NewheroPageComponent
+    NewheroPageComponent,
+    NewEmpireComponent,
+    ListEmpireComponent,
+    ProtectEmpireModalComponent,
+    ProtectHeroModalComponent,
+    AttackEmpireModalComponent,
+    HeroInfoComponent
   ],
   entryComponents: [
     SpeciesDialogComponent,
@@ -60,11 +73,14 @@ import { NewheroPageComponent } from './pages/user/hero/newhero-page/newhero-pag
     MatInputModule,
     MatTableModule,
     MatMenuModule,
+    MatIconModule,
+    MatListModule,
     FormsModule
   ],
   providers: [
     SpeciesResourceService,
     HeroResourceService,
+    EmpireHandlerResourceService,
     AuthService
   ],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,6 +45,6 @@ public class Hero {
     @Column(name="userid")
     private String userid;
     
-    @OneToMany(mappedBy = "hero")
+    @OneToMany(mappedBy = "hero", cascade = CascadeType.REMOVE)
     private Collection<Hybrid>  hybrid = new ArrayList<>();
 }

@@ -1,10 +1,11 @@
-<mat-card style="background-color: rgba(255,255,255,0.5)">
-  <mat-card-title>Hősök</mat-card-title>
-  <mat-card-content>
-
-    <mat-card style="" *ngFor="let hero of heroes">
+<section style="width: 100%">
+  <h1>Hősök</h1>
+  <div class="rowflex">
+    <mat-card style="width: 200px !important; height: 100px; margin:10px !important" *ngFor="let hero of heroes">
       <mat-card-header>
-        <mat-card-title>{{hero.name}}</mat-card-title>
+        <mat-card-title>
+          <span class="cursorPointer" (click)="openHeroInfoDialog(hero)">{{hero.name}}</span>
+        </mat-card-title>
         <mat-card-subtitle>{{hero.description}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content *ngIf="hero.hybrid && hero.hybrid.length>0 && hero.hybrid[0].species">
@@ -13,9 +14,10 @@
           <span>{{hybrid.species.name}}</span>
         </div>
       </mat-card-content>
-      <mat-card-footer class="m-10px textAlignRight">
-        <i class="material-icons cursorPointer" (click)="load(hero)">info</i>
+      <mat-card-footer style="text-align: right">
+        <mat-icon style="cursor: pointer" (click)="openAttackDialog(hero)">star</mat-icon>
+        <mat-icon style="cursor: pointer" (click)="onDelete(hero)">delete</mat-icon>
       </mat-card-footer>
     </mat-card>
-  </mat-card-content>
-</mat-card>
+  </div>
+</section>

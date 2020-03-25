@@ -1,0 +1,18 @@
+<section *ngIf="hero">
+
+<h1 mat-dialog-title>{{hero.name}}</h1>
+
+<div mat-dialog-content>
+  <mat-list>
+    <mat-list-item *ngFor="let hybrid of hero.hybrid" >
+      <div  mat-line>{{hybrid.species.name}} ({{hybrid.percent}})</div>
+      <div *ngFor="let endow of hybrid.species.endowments"  mat-line>{{endow.name}}({{endow.brain}},{{endow.power}},{{endow.skill}})</div>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Bezár</button>
+</div>
+
+</section>

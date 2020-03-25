@@ -1,4 +1,4 @@
-<mat-card style="background-color: rgba(255,255,255,0.5)">
+<mat-card >
   <mat-card-title>Új hős felvitele</mat-card-title>
   <mat-card-content>
     <mat-form-field class="width-100" >
@@ -13,7 +13,7 @@
     <hr />
     <mat-form-field class="width-100" *ngFor="let hybrid of hero.hybrid">
       <mat-label>{{hybrid.species.name}}</mat-label>
-      <input type="password" matInput [(ngModel)]="hybrid.percent">
+      <input type="number" matInput [(ngModel)]="hybrid.percent">
     </mat-form-field>
   </mat-card-content>
   <mat-card-footer class="m-10px textAlignRight">

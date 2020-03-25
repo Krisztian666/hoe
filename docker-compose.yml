@@ -69,6 +69,23 @@ services:
     ports:
       - '8091:8091'
 
+  hoe-empire:
+    image: jkqxl2/hoe:empire
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://10.0.2.15:3306/hoe
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: user
+      SERVICE_HERO: http://hoe-heroes:8091/heroes
+      KEYCLOAK_AUTH_SERVER_URL: http://hoeservice:9080/auth
+      JAVA_OPTS: -javaagent:/opt/jdebug/jidebugplus-agent-1.0-SNAPSHOT.jar=config:/opt/jdebug/agent-empire.properties
+    volumes:
+      - /home/user/jdebug:/opt/jdebug
+    extra_hosts:
+      hoeservice: 10.0.2.15
+    ports:
+      - '8092:8092'
+
+
 
   hoe-angular:
     image: jkqxl2/hoe:angular
