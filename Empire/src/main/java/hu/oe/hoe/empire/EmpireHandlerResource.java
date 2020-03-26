@@ -180,8 +180,8 @@ public class EmpireHandlerResource{
             
             uri = serviceHeroUrl+"/hero/byid/"+heroid;
             Hero attact = restTemplate.getForObject(uri, Hero.class);
-            
-            return getScore(attact)>getScore(protect);
+            boolean res = getScore(attact)>getScore(protect); 
+            return res;
             
     } 
      
